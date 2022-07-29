@@ -24,23 +24,4 @@ Route::get('/contact', [HomeController::class , 'getContact']);
 Route::get('/about', [HomeController::class , 'getAbout']);
 Route::get('/detail/{id}',[HomeController::class,'getDetail']);
 
-// Route::resource('/admin', AdminPRDController::class);
-
-Route::get('/admin',[AdminController::class, 'getIndexAdmin']);
-
-Route::get('/add',[AdminController::class, 'getAdminpage']);
-Route::post('/add',[AdminController::class,'postAdminAdd']);
-
-Route::get('/edit/{id}',[AdminController::class,'getAdminEdit']);
-Route::post('/edit',[AdminController::class,'postAdminEdit']);
-
-Route::post('/delete/{id}',[AdminController::class,'postAdminDelete']);
-
-
-Route::get('/register', function () {return view('users.register');});
-Route::post('/register',[UserController::class,'Register']);
-
-Route::get('/login', function () {return view('users.login');});     
-Route::post('/login',[UserController::class,'Login']);
-
-Route::get('/logout',[UserController::class,'Logout']);
+Route::resource('/admin', AdminPRDController::class);

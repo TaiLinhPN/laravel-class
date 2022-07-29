@@ -32,7 +32,8 @@
         <td>{{$product->unit}}</td>
         <td>
           <a href='admin/{{$product->id}}/edit' type="submit" class="btn btn-success" style="width:80px; margin-bottom:5px ;">Edit</a>
-          <form role="form" action="delete/{{$product->id}}" method="post">
+tom:5px ;">Edit</a>
+oduct->id}}" method="post">
             @csrf
             <button name="edit" type="submit" class="btn btn-warning" style="width:80px;">Delete</button>
           </form>
