@@ -29,7 +29,7 @@ Route::get('/detail/{id}',[HomeController::class,'getDetail']);
 Route::get('/admin',[AdminController::class, 'getIndexAdmin']);
 
 Route::get('/add',[AdminController::class, 'getAdminpage']);
-Route::post('/add',[AdminController::class,'postAdminAdd'])->name('add-product');
+Route::post('/add',[AdminController::class,'postAdminAdd']);
 
 Route::get('/edit/{id}',[AdminController::class,'getAdminEdit']);
 Route::post('/edit',[AdminController::class,'postAdminEdit']);

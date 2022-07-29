@@ -18,7 +18,6 @@
         <th scope="col">price</th>
         <th scope="col">Unit</th>
         <th scope="col">New</th>
-        <th scope="col"><a href="{{route('add-product')}}" class="btn btn-primary" style="width:80px;">Add</a></th>
       </tr>
     </thead>
     <tbody>
@@ -32,7 +31,7 @@
         <td>{{$product->unit_price}}</td>
         <td>{{$product->unit}}</td>
         <td>
-          <a href='edit/{{$product->id}}' type="submit" class="btn btn-success" style="width:80px; margin-bottom:5px ;">Edit</a>
+          <a href='admin/{{$product->id}}/edit' type="submit" class="btn btn-success" style="width:80px; margin-bottom:5px ;">Edit</a>
           <form role="form" action="delete/{{$product->id}}" method="post">
             @csrf
             <button name="edit" type="submit" class="btn btn-warning" style="width:80px;">Delete</button>

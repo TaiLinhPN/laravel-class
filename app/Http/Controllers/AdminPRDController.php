@@ -32,7 +32,6 @@ class AdminPRDController extends Controller
         return view ('pageadmin.formAdd');
     }
     
-
     /**
      * Store a newly created resource in storage.
      *
@@ -83,7 +82,8 @@ class AdminPRDController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = product::find($id);
+        return view('pageadmin.formEdit')->with('product',$product);
     }
 
     /**
@@ -95,7 +95,26 @@ class AdminPRDController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+
+        $product = product::find($id);
+        if($request->hasFile('editImage')){
+            $file = $request -> file ('editImage');
+            $fileName=$file->getClientOriginalName('editImage');
+            
+        }
+        if ($request->file('editImage')!=null){
+            $product ->image=$fileName;
+        }
+        $product->name=$request->editName;
+        $product->description=$request->editDescription;
+        $product->unit_price=$request->editPrice;
+        $product->promotion_price=$request->editPromotionPrice;
+        $product->unit=$request->editUnit;
+        $product->new=$request->editNew;
+        $product->id_type=$request->editType;
+        $product->save();
+        return redirect('/admin');
     }
 
     /**
