@@ -94,7 +94,7 @@
                 <nav class="main-menu">
                     <ul class="l-inline ov">
                         <li><a href="/trangchu">Trang chủ</a></li>
-                        <li><a href="showadmin">Admin</a></li>
+                        
 
                         <li><a href="#">Sản phẩm</a>
                             <ul class="sub-menu">

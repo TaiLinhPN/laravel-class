@@ -11,7 +11,6 @@
     <div class="container">
         <form action="admin-add-form" method="post" enctype="multipart/form-data">
             @csrf 
-            <!-- //được xác thực -->
             <div class="form-group">
                 <label for='inputName'>Name</label>
                 <input type="text" class="form-control" name="inputName" id="inputName" placeholder="Enter name" required>

@@ -2,16 +2,10 @@
 @section('content')
 <div class="space50">&nbsp;</div>
 <div class="container beta-relative">
-  <div class="container">
-    <div class="col-12 col-md-6" style="background: red;color:white">Số sản phẩm: {{count($products)}}</div>
-    <div class="col-12 col-md-6" style="background: blue;color:white">Đã bán: <br />
-      <p>Hôm nay: 1</p>
-      <p>Tháng này: 3</p>
-      <p>Năm nay: 4</p>
-    </div>
-  </div>
+  
   <div class="pull-left">
     <h2>List</h2>
+    <div>Tổng = {{count($products)}} sản phẩm</div>
   </div>
   <table id="table_admin_product" class="table table-striped display">
     <thead>
@@ -21,8 +15,7 @@
         <th scope="col">Name</th>
         <th scope="col">Type</th>
         <th scope="col">Description</th>
-        <th scope="col">Unit_price</th>
-        <th scope="col">Promotion_price</th>
+        <th scope="col">price</th>
         <th scope="col">Unit</th>
         <th scope="col">New</th>
         <th scope="col"><a href="{{route('add-product')}}" class="btn btn-primary" style="width:80px;">Add</a></th>
@@ -37,14 +30,12 @@
         <td>{{$product->id_type}}</td>
         <td>{{$product->description}}</td>
         <td>{{$product->unit_price}}</td>
-        <td>{{$product->promotion_price}}</td>
         <td>{{$product->unit}}</td>
-        <td>{{$product->new}}</td>
         <td>
-          <a href='admin-edit-form/{{$product->id}}' type="submit" class="btn btn-warning" style="width:80px;">Edit</a>
-          <form role="form" action="admin-delete/{{$product->id}}" method="post">
+          <a href='edit/{{$product->id}}' type="submit" class="btn btn-success" style="width:80px; margin-bottom:5px ;">Edit</a>
+          <form role="form" action="delete/{{$product->id}}" method="post">
             @csrf
-            <button name="edit" type="submit" class="btn btn-danger" style="width:80px;">Delete</button>
+            <button name="edit" type="submit" class="btn btn-warning" style="width:80px;">Delete</button>
           </form>
         </td>
 

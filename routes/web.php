@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PageController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminPRDController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\UserController;
 
@@ -16,33 +18,29 @@ use App\Http\Controllers\UserController;
 |
 */
 
-// Route::get('/rigister', function () {
-//     return view('users.rigister');
-// });
-Route::get('/trangchu', [PageController::class , 'getIndex']);
-Route::get('/type/{id}', [PageController::class , 'getLoaiSp']);
-Route::get('/contact', [PageController::class , 'getContact']);
-Route::get('/about', [PageController::class , 'getAbout']);
-Route::get('/showadmin',[PageController::class, 'getIndexAdmin']);
-//Add
-Route::get('/admin-add-form',[PageController::class, 'getAdminpage']);
-Route::post('/admin-add-form',[PageController::class,'postAdminAdd'])->name('add-product');
-//Edit
-// Route::get('/admin-edit-form/{id}',[PageController::class,'getAdminEdit']);
-// Route::post('/admin-edit',[PageController::class,'postAdminEdit']);
-// Route::post('/admin-delete/{id}',[PageController::class,'postAdminDelete']);
-Route::get('/admin-edit-form/{id}',[PageController::class,'getAdminEdit']);
-Route::post('/admin-edit',[PageController::class,'postAdminEdit']);
-//delete
-Route::post('/admin-delete/{id}',[PageController::class,'postAdminDelete']);
+Route::get('/trangchu', [HomeController::class , 'getIndex']);
+Route::get('/type/{id}', [HomeController::class , 'getLoaiSp']);
+Route::get('/contact', [HomeController::class , 'getContact']);
+Route::get('/about', [HomeController::class , 'getAbout']);
+Route::get('/detail/{id}',[HomeController::class,'getDetail']);
 
-Route::get('/detail/{id}',[PageController::class,'getDetail']);
-//register and login log out
-Route::get('/register', function () {return view('users.register');
-});
+// Route::resource('/admin', AdminPRDController::class);
+
+Route::get('/admin',[AdminController::class, 'getIndexAdmin']);
+
+Route::get('/add',[AdminController::class, 'getAdminpage']);
+Route::post('/add',[AdminController::class,'postAdminAdd'])->name('add-product');
+
+Route::get('/edit/{id}',[AdminController::class,'getAdminEdit']);
+Route::post('/edit',[AdminController::class,'postAdminEdit']);
+
+Route::post('/delete/{id}',[AdminController::class,'postAdminDelete']);
+
+
+Route::get('/register', function () {return view('users.register');});
 Route::post('/register',[UserController::class,'Register']);
-//login 
-Route::get('/login', function () {return view('users.login');                       
-});     
+
+Route::get('/login', function () {return view('users.login');});     
 Route::post('/login',[UserController::class,'Login']);
+
 Route::get('/logout',[UserController::class,'Logout']);
