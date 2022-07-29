@@ -32,7 +32,7 @@
         <td>{{$product->unit_price}}</td>
         <td>{{$product->unit}}</td>
         <td>
-          <a href='edit/{{$product->id}}' type="submit" class="btn btn-success" style="width:80px; margin-bottom:5px ;">Edit</a>
+          <a href="{{ route('admin.edit',$product->id) }}" type="submit" class="btn btn-success" >Edit</a>
           <form action="{{ route('admin.destroy',$product->id) }}" method="Post">
           @csrf
           @method('DELETE')

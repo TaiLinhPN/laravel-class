@@ -54,17 +54,6 @@
 
             <div class="form-group">
                 <img id="preview-image-before-upload" src="sources/image/product/{{$product->image}}" alt="preview image" style="max-height: 250px;">
-                <script type="text/javascript">
-                    $(document).ready(function(e) {
-                        $('#inputImage').change(function() {
-                            let reader = new FileReader();
-                            reader.onload = (e) => {
-                                $('#preview-image-before-upload').attr('src', e.target.result);
-                            }
-                            reader.readAsDataURL(this.files[0]);
-                        });
-                    });
-                </script>
             </div>
 
             <div class="form-group">
