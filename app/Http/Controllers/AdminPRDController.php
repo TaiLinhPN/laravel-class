@@ -46,13 +46,11 @@ class AdminPRDController extends Controller
             $fileName=$file->getClientOriginalName('inputImage');
             $file->move('sources/image/product',$fileName);
         }
-        $fileName=null;
         if ($request->file('inputImage')!=null){
             $file_name=$request->file('inputImage')->getClientOriginalName();
-
+            $product->image=$file_name;
         }
         $product->name=$request->inputName;
-        $product->image=$file_name;
         $product->description=$request->inputDescription;
         $product->unit_price=$request->inputPrice;
         $product->promotion_price=$request->inputPromotionPrice;

@@ -6,6 +6,14 @@
   <div class="pull-left">
     <h2>List</h2>
     <div>Tổng = {{count($products)}} sản phẩm</div>
+    <form action="/search" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="form-group">
+                <label for='inputNameFind'>Name</label>
+                <input type="text" class="form-control" name="inputNameFind" id="inputNameFind" placeholder="Search name" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
   </div>
   <table id="table_admin_product" class="table table-striped display">
     <thead>
@@ -22,6 +30,7 @@
       </tr>
     </thead>
     <tbody>
+    @if(count($products) >0)
       @foreach($products as $product)
       <tr class="products-list-admin">
         <th scope="row">{{$product->id}}</th>
@@ -43,6 +52,7 @@
 
       </tr>
       @endforeach
+    @endif
     </tbody>
   </table>
   <div class="space50">&nbsp;</div>

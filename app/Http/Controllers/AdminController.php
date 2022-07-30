@@ -79,4 +79,10 @@ class AdminController extends Controller
         $product->delete();
         return redirect('/admin');
 }
+
+public function findProduct(Request $request){
+   
+    $product =product::find(19);
+    return view('pageadmin.adminfind', compact('product')); 
+}
 }

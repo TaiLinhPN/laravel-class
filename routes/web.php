@@ -25,3 +25,5 @@ Route::get('/about', [HomeController::class , 'getAbout']);
 Route::get('/detail/{id}',[HomeController::class,'getDetail']);
 
 Route::resource('/admin', AdminPRDController::class);
+
+Route::post('/search', [AdminController::class , 'findProduct']);
