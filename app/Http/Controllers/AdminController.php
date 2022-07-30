@@ -82,7 +82,7 @@ class AdminController extends Controller
 
 public function findProduct(Request $request){
    
-    $product =product::find(19);
+    $product =product::find($request->inputNameFind);
     return view('pageadmin.adminfind', compact('product')); 
 }
 }

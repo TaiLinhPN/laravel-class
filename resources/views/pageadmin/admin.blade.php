@@ -10,7 +10,7 @@
             @csrf
             <div class="form-group">
                 <label for='inputNameFind'>Name</label>
-                <input type="text" class="form-control" name="inputNameFind" id="inputNameFind" placeholder="Search name" required>
+                <input type="text" class="form-control" name="inputNameFind" id="inputNameFind" placeholder="Search ID" required>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
       </form>
